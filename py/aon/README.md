@@ -9,6 +9,8 @@ create an inline comment on a differential review.
 Create a new revision in differential.
 * `aoncmd_getdiff.py` -
 Get a diff from differential, along with metadata.
+* `aoncmd_gitdiffhelper.py` -
+create a diff from a git repository.
 * `aoncmd_paste.py` -
 Create a new paste.
 * `aoncmd_query.py` -
