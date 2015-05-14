@@ -23,7 +23,8 @@ positional arguments:
     task-create         Create a new task in maniphest.
     task-update         Update a task in maniphest.
     task-query          display and filter the list of maniphest tasks.
-    git-diff-helper     create a diff from a git repository.
+    git-diff-helper     create a diff from a git repository, reducing the diff
+                        if it is too big.
 
 optional arguments:
   -h, --help            show this help message and exit

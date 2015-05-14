@@ -1,8 +1,10 @@
-"""create a diff from a git repository.
+"""create a diff from a git repository, reducing the diff if it is too big.
+Automatic size reduction is achieved by discarding context.
+`git-diff-helper` will call `git diff BASE...HEAD` on your behalf.
 
 usage examples:
 
-    $ arcyon diff-helper 3aad31 4def41
+    $ arcyon git-diff-helper 3aad31 4def41
 
 """
 # =============================================================================
@@ -39,23 +41,20 @@ def setupParser(parser):
     parser.add_argument(
         'base',
         type=str,
-        nargs=1,
-        default="",
-        help="the base of the diff")
+        help="the base commit of the diff")
     parser.add_argument(
         'head',
         type=str,
-        nargs=1,
-        default="",
-        help="the head of the diff")
+        help="the head commit of the diff")
 
 
 def process(args):
     repo_path = os.path.abspath(os.curdir)
-    base = args.base[0]
-    head = args.head[0]
+    base = args.base
+    head = args.head
 
     repo = phlsys_git.Repo(repo_path)
+    # TODO: do not use private variable abdt_branch._MAX_DIFF_SIZE
     diff = abdt_differ.make_raw_diff(
         repo, base, head, abdt_branch._MAX_DIFF_SIZE)
     sys.stdout.write(diff.diff)

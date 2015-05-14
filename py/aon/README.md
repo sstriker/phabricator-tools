@@ -10,7 +10,7 @@ Create a new revision in differential.
 * `aoncmd_getdiff.py` -
 Get a diff from differential, along with metadata.
 * `aoncmd_gitdiffhelper.py` -
-create a diff from a git repository.
+create a diff from a git repository, reducing the diff if it is too big.
 * `aoncmd_paste.py` -
 Create a new paste.
 * `aoncmd_query.py` -
